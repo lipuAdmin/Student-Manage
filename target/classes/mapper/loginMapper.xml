@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springweb.dao.loginMapper">
+    <select id="queryByName" resultType="user">
+        select *from st_login where stuNumber=#{stuNumber}
+    </select>
+    <insert id="addUser" parameterType="user">
+        insert into st_login (stuNumber, password) VALUES (#{stuNumber},#{password})
+    </insert>
+</mapper>
