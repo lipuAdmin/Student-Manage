@@ -4,7 +4,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://8.130.51.51:3306/student?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://8.142.40.213:3306/student?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     druid:
@@ -41,7 +41,14 @@ server:
   tomcat:
     uri-encoding: utf-8
   port: 8014
-# 插件配置
+# 日志
+logging:
+  level:
+    root: info
+    org.springframework.web: debug
+  file:
+    path: /root/log
+# 分页插件配置
 pagehelper:
   helper-dialect: mysql
   reasonable: true

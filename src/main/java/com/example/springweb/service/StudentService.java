@@ -44,7 +44,7 @@ public class StudentService {
     }
     public int deleteStu(String stuNumber){
         Student student=queryByNum(stuNumber);
-        File file=new File("/www/wwwroot/uploads/images/"+student.getStuPic());
+        File file=new File("/root/uploads/images/"+student.getStuPic());
         if(file.exists()){
             file.delete();
         }else {
@@ -54,7 +54,7 @@ public class StudentService {
     }
     boolean upFile(Student student,MultipartFile file){
         String fileName=file.getOriginalFilename();
-        String dirPath="/www/wwwroot/uploads/images/";
+        String dirPath="/root/uploads/images/";
         String newFileName= UUID.randomUUID()+"-"+fileName;
         student.setStuPic(newFileName);
         File filePath=new File(dirPath);
@@ -62,7 +62,7 @@ public class StudentService {
             filePath.mkdirs();
         }
         try{
-            file.transferTo(new File(dirPath+newFileName));
+            file.transferTo(new File(dirPath,newFileName));
         }catch (Exception e){
             e.printStackTrace();
             return false;
