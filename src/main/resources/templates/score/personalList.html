@@ -57,7 +57,7 @@
                                     <th scope="col">学科</th>
                                     <th scope="col">分数</th>
                                     <th scope="col">绩点</th>
-                                    <th scope="col">专业排名</th>
+                                    <th scope="col">单科排名</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -65,7 +65,7 @@
                                     <th scope="row" th:text="${list.couName}"></th>
                                     <td th:text="${list.grade}"></td>
                                     <td th:text="${list.point}"></td>
-                                    <td>Mark</td>
+                                    <td th:text="${list.ranks}"></td>
                                 </tr>
                                 <tr th:if="${personList.isEmpty()}">
                                     <td>当前无信息,请按学号搜索</td>

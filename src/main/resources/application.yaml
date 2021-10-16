@@ -33,6 +33,25 @@ spring:
       enabled: true
       additional-paths: src/main/java
       exclude: static/**
+  mail:
+    protocol: smtp
+    host: smtp.qq.com
+    port: 465
+    username: 3234501438@qq.com
+    password: upljhnduwgcddbeh
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
 # 整合mybatis
 mybatis:
   type-aliases-package: com.example.springweb.pojo
@@ -40,19 +59,21 @@ mybatis:
 server:
   tomcat:
     uri-encoding: utf-8
-  port: 8014
+  port: 8022
 # 日志
 logging:
   level:
     root: info
     org.springframework.web: debug
   file:
-    path: /root/log
+    path: /www/wwwroot/default/log
 # 分页插件配置
 pagehelper:
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+# 自定义参数
+severUrl: "http://8.142.40.213:8014/validMail?confirmCode="
 
 

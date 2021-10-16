@@ -4,6 +4,8 @@ import com.example.springweb.dao.studentMapper;
 import com.example.springweb.pojo.Student;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -53,6 +55,7 @@ public class StudentService {
         return studentMapper.deleteStu(stuNumber);
     }
     boolean upFile(Student student,MultipartFile file){
+        Logger logger= LoggerFactory.getLogger(StudentService.class);
         String fileName=file.getOriginalFilename();
         String dirPath="/root/uploads/images/";
         String newFileName= UUID.randomUUID()+"-"+fileName;
@@ -64,6 +67,7 @@ public class StudentService {
         try{
             file.transferTo(new File(dirPath,newFileName));
         }catch (Exception e){
+            logger.warn("错误信息为"+e.getMessage());
             e.printStackTrace();
             return false;
         }

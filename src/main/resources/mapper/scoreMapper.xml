@@ -10,8 +10,8 @@
         ORDER BY grade DESC
     </select>
     <select id="queryByNum" resultType="personal" parameterType="String">
-        SELECT NAME,couName,grade,POINT
-        FROM score
+        SELECT NAME,couName,grade,ranks,point
+        FROM ranks
         WHERE stuNumber=#{stuNumber}
     </select>
     <select id="queryByMajor" parameterType="String" resultType="allPoint">

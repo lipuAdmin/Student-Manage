@@ -1,5 +1,6 @@
 package com.example.springweb.config;
 
+import com.example.springweb.pojo.Login;
 import com.example.springweb.pojo.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -11,8 +12,8 @@ public class MyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session=request.getSession();
-        User user=(User) session.getAttribute("user");
-        if(user!=null){
+        Login login=(Login) session.getAttribute("USER");
+        if(login!=null){
             return true;
         }else {
             request.setAttribute("str","请先登录");

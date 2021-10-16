@@ -80,7 +80,7 @@
             <img th:src="@{/images/user/1.jpg}" class="img-fluid rounded mr-3" alt="user">
             <div class="caption">
               <h6 class="mb-0 line-height text-white">你好</h6>
-              <span class="font-size-12 text-white" th:text="${session.user.stuNumber}"></span>
+              <span class="font-size-12 text-white" th:text="${session.USER.getEmail()}"></span>
             </div>
           </a>
           <div class="iq-sub-dropdown iq-user-dropdown">
@@ -88,30 +88,8 @@
               <div class="iq-card-body p-0 ">
                 <div class="bg-primary p-3">
                   <h5 class="mb-0 text-white line-height">你好</h5>
-                  <span class="font-size-12 text-white" th:text="${session.user.stuNumber}"></span>
+                  <span class="font-size-12 text-white" th:text="${session.USER.getEmail()}"></span>
                 </div>
-                <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
-                  <div class="media align-items-center">
-                    <div class="rounded iq-card-icon iq-bg-primary">
-                      <i class="ri-file-user-line"></i>
-                    </div>
-                    <div class="media-body ml-3">
-                      <h6 class="mb-0 ">个人信息</h6>
-                      <p class="mb-0 font-size-12">查看个人基本信息</p>
-                    </div>
-                  </div>
-                </a>
-                <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
-                  <div class="media align-items-center">
-                    <div class="rounded iq-card-icon iq-bg-primary">
-                      <i class="ri-profile-line"></i>
-                    </div>
-                    <div class="media-body ml-3">
-                      <h6 class="mb-0 ">编辑个人信息</h6>
-                      <p class="mb-0 font-size-12">修改个人基本信息</p>
-                    </div>
-                  </div>
-                </a>
                 <div class="d-inline-block w-100 text-center p-3">
                   <a class="bg-primary iq-sign-btn" th:href="@{/loginOut}" role="button">登出<i class="ri-login-box-line ml-2"></i></a>
                 </div>

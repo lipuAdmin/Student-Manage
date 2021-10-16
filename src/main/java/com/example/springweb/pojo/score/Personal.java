@@ -8,4 +8,5 @@ public class Personal {
     private String couName;
     private int grade;
     private float point;
+    private int ranks;
 }
