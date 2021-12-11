@@ -1,6 +1,7 @@
 package com.example.springweb.service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -36,7 +37,7 @@ public class EmailService {
             mimeMessageHelper.setText(text, true);
             //发送邮件
             javaMailSender.send(mimeMessage);
-        } catch (MessagingException e) {
+        } catch (Exception  e) {
             e.printStackTrace();
         }
     }

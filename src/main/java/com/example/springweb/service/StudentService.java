@@ -6,6 +6,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,6 +17,8 @@ import java.util.UUID;
 
 @Service("StudentService")
 public class StudentService {
+    @Value("${imgFile}")
+    private String dirPath;
     @Resource(name = "studentMapper")
     private studentMapper studentMapper;
     public PageInfo<Student> queryAll(int pageNum){
@@ -46,7 +49,7 @@ public class StudentService {
     }
     public int deleteStu(String stuNumber){
         Student student=queryByNum(stuNumber);
-        File file=new File("/root/uploads/images/"+student.getStuPic());
+        File file=new File(dirPath+student.getStuPic());
         if(file.exists()){
             file.delete();
         }else {
@@ -57,7 +60,6 @@ public class StudentService {
     boolean upFile(Student student,MultipartFile file){
         Logger logger= LoggerFactory.getLogger(StudentService.class);
         String fileName=file.getOriginalFilename();
-        String dirPath="/root/uploads/images/";
         String newFileName= UUID.randomUUID()+"-"+fileName;
         student.setStuPic(newFileName);
         File filePath=new File(dirPath);
